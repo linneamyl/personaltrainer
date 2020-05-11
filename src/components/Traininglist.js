@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ReactTable from 'react-table-v6';
 import 'react-table-v6/react-table.css';
-import Snackbar from '@material-ui/core/Snackbar';
 import moment from 'moment/moment';
+import Button from "@material-ui/core/Button";
 
 export default function Traininglist() {
     const [trainings, setTrainings] = useState([]);
@@ -18,6 +18,17 @@ export default function Traininglist() {
     React.useEffect(() => {
         fetchData();
     }, []);
+
+    function deleteCustomer(link) {
+        console.log(link)
+
+        if (window.confirm('Are you sure?')) {
+            fetch('https://customerrest.herokuapp.com/api/trainings/' + link, {method:'DELETE'})
+                .then(_ => fetchData())
+                .catch(err => console.error(err))
+
+        }
+    }
 
     const columns = [
          
@@ -42,7 +53,13 @@ export default function Traininglist() {
             Header: 'Lastname',
             accessor: 'customer.lastname'
         },
-    ];
+        {
+        filterable: false,
+        sortable: false,
+        width: 100,
+        Cell: row => (<Button color="secondary" size="small"
+                              onClick={() => deleteCustomer(row.row._original.id)}>Delete</Button>)
+         } ];
 
     return (
         <div>

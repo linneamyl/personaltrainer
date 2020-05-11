@@ -24,6 +24,17 @@ import Snackbar from '@material-ui/core/Snackbar';
             setOpen(false);
         }
 
+        function deleteCustomer(link) {
+            console.log(link)
+    
+            if (window.confirm('Are you sure?')) {
+                fetch(link, {method: 'DELETE'})
+                    .then(_ => getCustomers())
+                    .catch(err => console.error(err))
+    
+            }
+        }
+
 
     
         const columns = [
@@ -56,6 +67,13 @@ import Snackbar from '@material-ui/core/Snackbar';
                 Header: "City",
                 accessor: "city"
             },
+            {
+                filterable: false,
+                sortable: false,
+                width: 100,
+                Cell: row => (<Button color="secondary" size="small"
+                                      onClick={() => deleteCustomer(row.row._original.links[1].href)}>Delete</Button>)
+            }
         ];
     
         return (
