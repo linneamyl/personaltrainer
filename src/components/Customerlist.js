@@ -60,7 +60,7 @@ import Snackbar from '@material-ui/core/Snackbar';
     
         return (
             <div>
-              <ReactTable defaultPageSize={10} filterable={true} data={customers} columns={columns} />
+              <ReactTable defaultPageSize={10} filterable={true} data={customers} columns={columns} sortable={true}/>
             <Snackbar
                 open={open}
                 autoHideDuration={3000}
