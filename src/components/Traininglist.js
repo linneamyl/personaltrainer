@@ -6,9 +6,6 @@ import moment from 'moment/moment';
 
 export default function Traininglist() {
     const [trainings, setTrainings] = useState([]);
-    const [open, setOpen] = useState(false);
-    const [msg, setMsg] = useState('');
-
 
     function fetchData() {
         fetch('https://customerrest.herokuapp.com/gettrainings')
@@ -30,7 +27,7 @@ export default function Traininglist() {
             Cell: row => moment(row.value).format('DD/MM/YY, hh:mm')
         },
         {
-            Header: "Duration",
+            Header: "Duration (minutes)",
             accessor: "duration"
         },
         {
