@@ -1,31 +1,39 @@
-import React from "react";
-import "./App.css";
-import Customerlist from './components/Customerlist';
-import { BrowserRouter, Link, Switch, Route } from "react-router-dom";
-import Traininglist from "./components/Traininglist";
-import Calendar from "./components/Calendar";
-
+import React from 'react';
+import './App.css';
+import 'react-mdl/extra/material.css';
+import 'react-mdl/extra/material.js';
+import {Layout, Header, Navigation, Drawer, Content} from 'react-mdl';
+import {Link} from "react-router-dom";
+import Main from "./components/Main";
+import './App.css'
 
 function App() {
-  return (
-    <div>
-      <BrowserRouter>
-        <div>
-          <Link to= "/customerlist">Customerlist</Link>{''}
-          <Link to= "/traininglist">Traininglist</Link>{''}
-          <Link to="/calendar">Calendar</Link>{''}
-          <Switch>
-            <Route path="/calendar" component={Calendar}/>
-            <Route path="/customerlist" component={Customerlist}/>
-            <Route path="/traininglist" component={Traininglist} />
-            {/*<Route render={() => <h1>Page not found</h1>}/>		*/}
-          </Switch>
+
+    function hideToggle() {
+        var selectorId = document.querySelector('.mdl-layout');
+        selectorId.MaterialLayout.toggleDrawer();
+    }
+    return (
+        <div className="App">
+            <Layout>
+                <Header title="Personal trainer" scroll>
+                </Header>
+                <Drawer title="Valikko">
+                    <Navigation>
+                        <Link to="/customers" onClick={() => hideToggle()}>Customers</Link>
+                        <Link to="/trainings" onClick={() => hideToggle()}>Trainings</Link>
+                        <Link to="/calendar" onClick={() => hideToggle()}>Calendar</Link>
+                        <Link to="/chart" onClick={() => hideToggle()}>Chart</Link>
+                    </Navigation>
+                </Drawer>
+                <Content>
+                    <div className="page-content"/>
+                    <Main/>
+                </Content>
+            </Layout>
         </div>
-      </BrowserRouter>
-    </div>
-  );
+    );
 }
 
-
-
 export default App;
+
