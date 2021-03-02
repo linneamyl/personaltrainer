@@ -1,5 +1,10 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Personal trainer application
 
+This project was part of Front end developing course in Haaga-Helia University of Applied Sciences. The project has been deployed to AWS and you can check it by following the link below. The idea of the project is an application for personal trainers. You can add a customer, add a training for the customer, check the trainings from calendar view and see the charts of training durations. 
+
+[https://master.d1ts5p95e587sj.amplifyapp.com](https://master.d1ts5p95e587sj.amplifyapp.com)
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). 
 ## Available Scripts
 
 In the project directory, you can run:
