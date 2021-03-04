@@ -58,6 +58,7 @@ You will also see any lint errors in the console.
 - [React-table-v6](https://github.com/tannerlinsley/react-table)
 - [React-big-calendar](https://github.com/jquense/react-big-calendar)
 - [React-router-dom](https://reactrouter.com/web/guides/quick-start)
+- [Lodash](https://lodash.com)
 
 
 
